@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Entrenador de Señas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section id="demos" class="invisible m-5">
+
+        <h2 class="text-center">Entrenador de señas</h2>
+
+        <p class="text-center" id="status">Cargando modelos...</p>
+
+        <div id="liveView" class="videoView">
+            <button id="webcamButton" class="btn btn-dark mdc-button mdc-button--raised m-5">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">HABILITAR WEBCAM</span>
+            </button>
+            <div style="position: relative; display: flex; justify-content: center; align-items: center; height: 80vh;">
+                <video id="webcam" style="position: absolute;" autoplay playsinline></video>
+                <canvas class="output_canvas" id="output_canvas" style="position: absolute;"></canvas>
+            </div>
+        </div>
+
+        <p class="text-center" id="data_collect" style="display: none;">Sin datos para entrenar</p>
+
+        <p class="text-center" id="predict" style="display: none;"></p>
+
+        <div class="mb-5" style="display: none;" id="buttons">
+            <button class="dataCollector btn btn-dark" data-1hot="0" data-name="Palma">Palma</button>
+            <button class="dataCollector btn btn-dark" data-1hot="1" data-name="Sign">Capturar Seña</button>
+            <button class="btn btn-dark" id="train">Entrenar y probar</button>
+            <button class="btn btn-dark" id="reset">Reiniciar</button>
+            <button class="btn btn-dark" id="guardar">Guardar</button>
+        </div>
+    </section>
+
+    <script type="module" src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
